@@ -1,7 +1,7 @@
 
 // GLOBAL VARIABLES:
 
-var emotionArray = ["Anger", "Shock", "Dissatisfaction", "Satisfaction", "Happyness", "Boredom", "Love", "Hatred", "Admiration", "Distaste"]
+var emotionArray = ["Anger", "Shock", "Dissatisfaction", "Satisfaction", "Happiness", "Boredom", "Love", "Hatred", "Admiration", "Distaste"]
 search = $("#searchInput").val().trim();
 
 // DOCUMENT READY:
