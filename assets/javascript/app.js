@@ -19,6 +19,7 @@ $(document).ready(function () {
         // CREATE A BUTTON FOR EVERY ELEMENT IN THE ARRAY; ADD APPROPRIATE CLASSES, ARRAY NAME, AND ARRAY TEXT
         for (var i = 0; i < emotionArray.length; i++) {
             var emotion = $("<button>");
+            emotion.addClass("loadGifWhenClicked");
             emotion.addClass("btn-info");
             emotion.addClass("btn btn-primary")
             emotion.attr("data-name", emotionArray[i]);
@@ -47,6 +48,7 @@ $(document).ready(function () {
             // CREATE BUTTON
 
             var newTopic = $("<button>");
+            newTopic.addClass("loadGifWhenClicked");
             newTopic.addClass("btn-info");
             newTopic.addClass("btn btn-primary")
             newTopic.attr("data-name", search);
@@ -59,14 +61,14 @@ $(document).ready(function () {
         });
     });
 
-    // AJAX COMMUNICATION
-
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + search + "&apikey=8iB1yv88fnnwDTQ4Wm0yhxOghzzbO7Yq&limit=10";
-    console.log(queryURL);
 
     // FUNCTION TO QUERY AND RETURN FOR LOOP SPECIFIED DATA
 
     function getGif() {
+
+        search = $(this).data('name');
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + search + "&apikey=8iB1yv88fnnwDTQ4Wm0yhxOghzzbO7Yq&limit=10";
+        console.log(this);
 
         $.ajax({
             url: queryURL,
@@ -82,20 +84,25 @@ $(document).ready(function () {
 
             for (var i = 0; i < results.length; i++) {
                 var gifName = $("<div>");
-                gifName.text(results[i].data.title);
-                gifName.attr("src", results[i].images.fixed_height_small_still.url);
+                var gifName = $("<img>");
+                gifName.text(results[i].title);
+                gifName.attr("alt", results[i].title);
+                gifName.attr("src", results[i].images.original.url);
                 gifName.addClass("newGif");
-                console.log(gifName);
                 gifName.attr("data-state", "still");
-                $('.gifColumn').append(gifName);
+                console.log(gifName);
+                $('#gifDisplayArea').append(gifName);
             }
         });
     }
+
+    // POINT TO THE DOM AND LISTEN FOR AN EVENT WITH ONE OF THE THREE CLASSES LISTED. ONCE THAT EVENT OCCURS, RUN THE getGif FUNCTION.
+
     $(document).on("click", ".search", getGif);
-    $(document).on("click", ".newGif", getGif);
+    $(document).on("click", ".loadGifWhenClicked", getGif);
 
 
-
+    // $(".newGif").on("click", play());
 
 
 

@@ -11,3 +11,15 @@
     margin: 10px;
     padding: 5px;
 }
+.newGif {
+    max-width: 300px;;
+    padding: 20px;
+    /* float: left; */
+}
+#gifDisplayArea {
+    margin: 0 auto;
+    text-align: center;
+}
+.addButtonContainer {
+    margin-bottom: 40px;
+}
