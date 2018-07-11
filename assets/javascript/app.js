@@ -88,18 +88,17 @@ $(document).ready(function () {
                 var gifName = $("<img>");
                 gifName.text(results[i].title);
                 gifName.attr("alt", results[i].title);
-                gifName.attr("src", results[i].images.fixed_height.url);
-                gifName.attr("data-animate",results[i].images.original.url);
-                gifName.attr("data-still",results[i].images.original_still.url);
+                gifName.attr("src", results[i].images.original_still.url);
+                gifName.attr("data-still", results[i].images.original_still.url);
+                gifName.attr("data-animate", results[i].images.original.url);
                 gifName.attr("data-state", "still");
                 gifName.addClass("newGif");
-                console.log(gifName);
                 $('#gifDisplayArea').append(gifName);
             }
         });
     }
 
-    function emptyGifs(){
+    function emptyGifs() {
         $("#gifDisplayArea").empty();
     }
 
@@ -111,21 +110,20 @@ $(document).ready(function () {
 
     // LOAD STILL IMAGES OF THE GIF INITIALLY. ON CLICK, CHANGE THE STATE OF THE IMAGE TO ONE THAT IS ANIMATED.
     // TODO - NOT FUNCTIONING RIGHT. IT CYCLES THROUGH THE STATES AND WILL PAUSE AND PLAY THE GIFS BUT IT DOES NOT START OFF FROM THE CORRECTLY SPECIFIED STILL STATE
+    
+    $(document).on("click", ".newGif", function () {
+        var state = $(this).attr('data-state');
 
-    $(document).on("click", ".newGif", function(){
+        console.log(state);
 
-    var state = $(this).attr('data-state');
-    console.log(state);
-
-    if ( state == 'still'){
-        $(this).attr('src', $(this).data('animate'));
-        console.log(this);
-        $(this).attr('data-state', 'animate');
-    }else{
-        $(this).attr('src', $(this).data('still'));
-        $(this).attr('data-state', 'still');
-    }
-});
+        if (state === 'still') {
+            $(this).attr('src', $(this).data('animate'));
+            $(this).attr('data-state', 'animate');
+        } else {
+            $(this).attr('src', $(this).data('still'));
+            $(this).attr('data-state', 'still');
+        }
+    });
 
 
 
