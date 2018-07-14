@@ -1,11 +1,18 @@
 
 // GLOBAL VARIABLES:
 
-var emotionArray = ["Anger", "Shock", "Dissatisfaction", "Satisfaction", "Happiness", "Boredom", "Love", "Hatred", "Admiration", "Distaste"]
+var emotionArray = ["ANGER", "SHOCK", "DISSATISFACTION", "SATISFACTION", "HAPPINESS", "BOREDOM", "LOVE", "HATRED", "ADMIRATION", "DISTASTE", "INTEREST", "RESOLVE"]
 search = $("#searchInput").val().trim();
 
 
-// DOCUMENT READY:
+// WHEN AJAX QUERY RUNS, SHOW A LOADING ICON. WHEN IT HAS COMPLETED ITS QUERY, REMOVE THE LOADING ICON
+
+$body = $("body");
+
+$(document).on({
+    ajaxStart: function() { $body.addClass("loading"); },
+    ajaxStop: function() { $body.removeClass("loading"); }    
+});
 
 $(document).ready(function () {
 
@@ -62,13 +69,15 @@ $(document).ready(function () {
         });
     });
 
-
     // FUNCTION TO QUERY AND RETURN FOR LOOP SPECIFIED DATA
 
     function getGif() {
 
         search = $(this).data('name');
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + search + "&apikey=8iB1yv88fnnwDTQ4Wm0yhxOghzzbO7Yq&limit=10";
+
+        var offset = Math.floor((Math.random() * 1000) + 1);
+
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + search + "&apikey=8iB1yv88fnnwDTQ4Wm0yhxOghzzbO7Yq&limit=10&offset=" + offset;
         console.log(this);
 
         $.ajax({
@@ -81,7 +90,6 @@ $(document).ready(function () {
             if (results == "") {
                 return false;
             }
-            // 
 
             for (var i = 0; i < results.length; i++) {
                 var gifDiv = $("<div>");
@@ -109,7 +117,7 @@ $(document).ready(function () {
 
     // POINT TO THE DOM AND LISTEN FOR AN EVENT WITH ONE OF THE THREE CLASSES LISTED. ONCE THAT EVENT OCCURS, RUN THE getGif FUNCTION.
 
-    $(document).on("click", ".search", getGif);
+    // $(document).on("click", ".search", getGif);
     $(document).on("click", ".loadGifWhenClicked", getGif);
     $(document).on("click", "#clearGifsButton", emptyGifs);
 
@@ -131,7 +139,7 @@ $(document).ready(function () {
     });
 
 
-
+   
 
 
 

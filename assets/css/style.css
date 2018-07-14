@@ -1,5 +1,13 @@
 
-
+body {
+    /* font-family: 'Nothing You Could Do', cursive; */
+    /* font-family: 'Six Caps', sans-serif; */
+    text-transform: uppercase;
+}
+.sideBarImg {
+    text-align: center;
+    float: right;
+}
 
 #buttonContainer {
     padding: 40px 10px 40px 10px;
@@ -10,7 +18,17 @@
 .btn {
     margin: 10px;
     padding: 5px;
+    background: white;
+    border: 1px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    color: black;
+    transition: transform .2s;
 }
+.btn:hover{
+    transform: scale(1.1);
+}
+
 .newGif {
     max-height: 150px;
     object-fit: contain;
@@ -21,6 +39,8 @@
 
 h3 {
     font-size: 1em;
+    position: relative;
+    top: 10px;
 }
 
 .gifDiv{
@@ -33,6 +53,7 @@ h3 {
 }
 .gifDiv:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+    
 }
 
 #gifDisplayArea {
@@ -42,4 +63,28 @@ h3 {
 }
 .addButtonContainer {
     margin-bottom: 40px;
+}
+
+/* Loading icon */
+
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://thevisualcommunicationguy.com/wp-content/plugins/gallery-by-supsystic/src/GridGallery/Galleries/assets/img/loading.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+body.loading .modal {
+    overflow: hidden;   
+}
+
+body.loading .modal {
+    display: block;
 }
