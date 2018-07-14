@@ -12,13 +12,33 @@
     padding: 5px;
 }
 .newGif {
-    max-width: 300px;;
-    padding: 20px;
-    /* float: left; */
+    max-height: 150px;
+    object-fit: contain;
+    overflow: hidden;
+    display: block;
+    
 }
+
+h3 {
+    font-size: 1em;
+}
+
+.gifDiv{
+    margin: 2%;
+    text-align: center;
+    float: left;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 10px;
+}
+.gifDiv:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+}
+
 #gifDisplayArea {
     margin: 0 auto;
     text-align: center;
+    overflow: hidden;
 }
 .addButtonContainer {
     margin-bottom: 40px;

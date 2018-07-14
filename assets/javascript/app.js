@@ -81,11 +81,12 @@ $(document).ready(function () {
             if (results == "") {
                 return false;
             }
-            // TODO THE BELOW CODE DOES NOT APPEAR TO BE FIRING. I ADDED EVENT LISTENERS BELOW SO THAT IF THE TWO CLASSES ARE CLICKED, IT SHOULD RUN THE WHOLE CODE ALL THE WAY THROUGH TO THE APPEND. NOT GETTING ERRORS AND I AM STILL NOT CLEAR AS TO HOW TO DEBUG.
+            // 
 
             for (var i = 0; i < results.length; i++) {
-                var gifName = $("<div>");
+                var gifDiv = $("<div>");
                 var gifName = $("<img>");
+                var rating = $("<h3>");
                 gifName.text(results[i].title);
                 gifName.attr("alt", results[i].title);
                 gifName.attr("src", results[i].images.original_still.url);
@@ -93,7 +94,11 @@ $(document).ready(function () {
                 gifName.attr("data-animate", results[i].images.original.url);
                 gifName.attr("data-state", "still");
                 gifName.addClass("newGif");
-                $('#gifDisplayArea').append(gifName);
+                gifDiv.addClass("gifDiv");
+                rating.text(results[i].rating);
+                gifDiv.append(gifName);
+                gifDiv.append(rating);
+                $('#gifDisplayArea').append(gifDiv);
             }
         });
     }
