@@ -8,6 +8,18 @@ body {
     text-align: center;
     float: right;
 }
+#reactionGifsBackground {
+    position: absolute;
+    top: 5%;
+    left: 12%;
+    font-family: 'Cabin Sketch', cursive;
+    opacity: 0.5;
+    transform: rotate(20deg);
+    font-size: 8em;
+    z-index: -1;
+    color: white;
+    text-shadow: 1px 1px 1px #000, 3px 3px 5px black;
+}
 
 #buttonContainer {
     padding: 40px 10px 40px 10px;
@@ -87,4 +99,17 @@ body.loading .modal {
 
 body.loading .modal {
     display: block;
+}
+
+@media only screen and (max-width: 768px) {
+    #reactionGifsBackground {
+        font-size: 6em;
+        
+    }
+}
+@media only screen and (max-width: 600px) {
+    #reactionGifsBackground {
+        font-size: 4em;
+        
+    }
 }
