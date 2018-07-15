@@ -69,6 +69,8 @@ $(document).ready(function () {
         });
     });
 
+    $("#searchInput").attr("autocomplete", "off");
+    
     // FUNCTION TO QUERY AND RETURN FOR LOOP SPECIFIED DATA
 
     function getGif() {
