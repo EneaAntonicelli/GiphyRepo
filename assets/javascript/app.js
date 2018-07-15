@@ -1,7 +1,7 @@
 
 // GLOBAL VARIABLES:
 
-var emotionArray = ["ANGER", "SHOCK", "DISSATISFACTION", "SATISFACTION", "HAPPINESS", "BOREDOM", "LOVE", "HATRED", "ADMIRATION", "DISTASTE", "INTEREST", "RESOLVE"]
+var emotionArray = ["ANGER", "SHOCK", "SADNESS", "SATISFACTION", "HAPPINESS", "BOREDOM", "LOVE", "HATRED", "ADMIRATION", "GREED", "INTEREST", "DISGUST"]
 search = $("#searchInput").val().trim();
 
 
@@ -70,7 +70,7 @@ $(document).ready(function () {
     });
 
     $("#searchInput").attr("autocomplete", "off");
-    
+
     // FUNCTION TO QUERY AND RETURN FOR LOOP SPECIFIED DATA
 
     function getGif() {
