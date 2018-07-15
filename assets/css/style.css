@@ -76,7 +76,7 @@ h3 {
     height:     100%;
     width:      100%;
     background: rgba( 255, 255, 255, .8 ) 
-                url('https://thevisualcommunicationguy.com/wp-content/plugins/gallery-by-supsystic/src/GridGallery/Galleries/assets/img/loading.gif') 
+                url('../images/loading.gif') 
                 50% 50% 
                 no-repeat;
 }
